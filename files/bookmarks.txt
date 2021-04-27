@@ -1,0 +1,44 @@
+## Wiki
+ArchWiki | https://wiki.archlinux.org/index.php/
+Wikipedia | https://en.wikipedia.org/wiki/
+##  Media
+Movistar Plus | https://ver.movistarplus.es/
+Disney Plus | https://www.disneyplus.com/
+Youtube | https://youtube.com/
+Spotify | https://open.spotify.com/
+Netflix | https://www.netflix.com/es-en/
+## Network
+Router | http://192.168.1.1/
+Tp-Link Deco | http://tplinkdeco.net/
+## University
+Moodle | https://moodle.upm.es/titulaciones/oficiales/my/
+Moodle Exams | https://moodle-exam.upm.es/my/
+DAT | https://dat.etsit.upm.es/examenes/GITST/3
+Simplyjarod | https://simplyjarod.com/etsit
+UPM Mail | https://www.upm.es/webmail_alumnos/?_task=mail&_mbox=INBOX
+Microsoft Teams | https://teams.microsoft.com/_#/school//?ctx=teamsGrid
+## Google
+Calendar | https://calendar.google.com/calendar/u/0/r
+Gmail | https://www.gmail.com
+Maps | https://www.google.es/maps
+Drive | https://www.drive.google.com
+## Social Network
+Facebook | https://facebook.com/
+Reddit | https://www.reddit.com/
+Instagram | https://www.instagram.com/
+WhatsApp | https://web.whatsapp.com/
+Twitter | https://twitter.com
+Jitsi | https://meet.jit.si/
+## My Server
+Hassio | https://hassio.ciencre.xyz/lovelace-andres
+Nextcloud | https://nextcloud.ciencre.xyz/
+PiHole | http://192.168.68.10:5380/admin
+Jellyfin | https://jellyfin.ciencre.xyz/
+Grafana | https://grafana.ciencre.xyz/
+NodeRed | http://192.168.68.10:6056/
+## Others
+Github | https://github.com/
+Typing Club | https://www.typingclub.com/
+Chess | https://www.chess.com/
+Lichess | https://lichess.org/
+Overleaf | https://overleaf.com/

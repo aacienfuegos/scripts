@@ -1,0 +1,16 @@
+clear lock
+clear mod4
+clear mod5
+
+keycode 66 = Super_L
+keycode 133 = ISO_Level3_Shift
+keycode 108 = ISO_Level3_Shift
+
+add mod4 = Super_L Super_R
+add mod5 = ISO_Level3_Shift Mode_switch
+
+keysym h = h H h H Left
+keysym j = j J j J Down
+keysym k = k K k K Up
+keysym l = l L l L Right
+

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+VAR1=$(pass show dummy)
+VAR2="OK"
+
+if [ "$VAR1" = "$VAR2" ]; then
+		notify-send "Pass" "GPG key is UNLOCKED"
+else
+				$TERMINAL -e pass show dummy 
+				VAR1=$(pass show dummy)
+				if [ "$VAR1" = "$VAR2" ]; then
+						notify-send "Pass" "GPG key is UNLOCKED"
+				else
+						notify-send "Pass" "GPG key is NOT unlocked"
+				fi
+fi
+

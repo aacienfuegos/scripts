@@ -1,0 +1,17 @@
+#!/bin/sh
+bm_file=~/.local/bin/files/bookmarks.txt
+focus_pid=$(xdotool getwindowfocus)
+
+url=$(grep -v "##" $bm_file | dmenu -l 20 | cut -d "|" -f 2 )
+
+[ -z "$url" ] && exit
+
+for brave_pid in $(xdotool search --onlyvisible --class 'Brave')
+do
+	if [ $focus_pid = $brave_pid ]; then
+		$BROWSER $url
+		exit
+	fi
+done
+
+$BROWSER --new-window $url

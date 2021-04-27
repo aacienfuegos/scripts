@@ -1,0 +1,14 @@
+#!/bin/sh
+# Loop through all attached batteries and format the info
+for battery in /sys/class/power_supply/BAT?*; do
+	capacity=$(cat "$battery/capacity")
+	# Exit if battery is not discharging or if battery is above 25%
+	[ "$(cat "$battery/status")" != "Discharging" ] && exit 0
+	[ "$capacity" -ge 25 ] && exit 0
+
+	export DISPLAY=:0
+	#export XDG_RUNTIME_DIR=/run/user/$(id -u)
+	export XAUTHORITY=/run/user/$(id -u)/Xauthority
+	#export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+	/usr/bin/notify-send -u critical "Battery low" "Battery level is ${capacity}%"
+done
