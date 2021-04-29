@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 ## Using setxkbmap
 setxkbmap -layout us_vim,es \
@@ -11,15 +11,13 @@ setxkbmap -layout us_vim,es \
 								terminate:ctrl_alt_bksp, \
 								lv5:lsgt_switch, \
 								lv3:lwin_switch, \
-								numpad:mac 
+								numpad:mac
 
 ## Using xmodmap
 #xmodmap ~/.local/bin/keymaps/base
 #xmodmap ~/.local/bin/keymaps/remaps
 
-## 
+##
 
 # When Caps is pressed alone it behaves as Escape
 killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
-
-
