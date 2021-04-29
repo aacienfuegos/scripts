@@ -7,6 +7,7 @@ Disney Plus | https://www.disneyplus.com/
 Youtube | https://youtube.com/
 Spotify | https://open.spotify.com/
 Netflix | https://www.netflix.com/es-en/
+Twitch | https://twitch.tv/
 ## Network
 Router | http://192.168.1.1/
 Tp-Link Deco | http://tplinkdeco.net/
