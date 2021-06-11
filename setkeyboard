@@ -9,9 +9,9 @@ setxkbmap -layout us_vim,es \
 								shift:both_capslock, \
 								caps:super, \
 								terminate:ctrl_alt_bksp, \
-								lv5:lsgt_switch, \
 								lv3:lwin_switch, \
 								numpad:mac
+								# lv5:lsgt_switch, \
 
 ## Using xmodmap
 #xmodmap ~/.local/bin/keymaps/base
