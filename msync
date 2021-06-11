@@ -5,9 +5,9 @@ case $1 in
 		echo "What do you want to sync?"
 		;;
 	sdg)
-		make -C ~/uni/SDG2/project/arkanopi
+		make -C ~/uni/SDG2/project/arkanopi || exit
 		file=~/uni/SDG2/project/arkanopi/arkanopi
-		rsync $file pi@pi.ciencre.xyz:/home/pi/
+		rsync -e "ssh -i $HOME/.ssh/raspi_sdg" $file pi@pi.ciencre.xyz:/home/pi/
 		;;
 	*)
 		echo "Wrong sync option"
