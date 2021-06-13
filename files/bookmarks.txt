@@ -29,6 +29,7 @@ Reddit | https://www.reddit.com/
 Instagram | https://www.instagram.com/
 WhatsApp | https://web.whatsapp.com/
 Twitter | https://twitter.com
+Linkedin | https://linkedin.com
 Jitsi | https://meet.jit.si/
 ## My Server
 Hassio | https://hassio.ciencre.xyz/lovelace-andres
