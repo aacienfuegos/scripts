@@ -1,17 +1,17 @@
 #!/bin/bash
 
 ## Using setxkbmap
-setxkbmap -layout us_vim,es \
-				-variant altgr-intl, \
-				-option \
-				-option \
-								grp:ctrls_toggle, \
-								shift:both_capslock, \
-								caps:super, \
-								terminate:ctrl_alt_bksp, \
-								lv3:lwin_switch, \
-								numpad:mac
-								# lv5:lsgt_switch, \
+setxkbmap 	-layout us_local,es \
+			-variant altgr-intl, \
+			-option \
+			-option \
+				grp:ctrls_toggle, \
+				shift:both_capslock, \
+				caps:super, \
+				terminate:ctrl_alt_bksp, \
+				lv3:lwin_switch, \
+				numpad:mac
+				# lv5:lsgt_switch, \
 
 ## Using xmodmap
 #xmodmap ~/.local/bin/keymaps/base
