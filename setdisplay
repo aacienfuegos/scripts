@@ -1,9 +1,13 @@
 #!/bin/sh
 
+# Screens get placed from left to right in the order of xrandr output
+# New screens get places to the right of the screen placed before
+
 postrun() { # Stuff to run to clean up.
 	setwallpaper		# Fix background if screen size/arangement has changed.
 	setkeyboard		# Re-remap keys if keyboard added (for laptop bases)
 	{ killall dunst ; setsid -f dunst ;} >/dev/null 2>&1 # Restart dunst to ensure proper location on screen
+	notify-send "💻 Detected $(echo "$screens" | wc -l) screens." "Using default settings..."
 	}
 
 # Get all possible displays
@@ -13,15 +17,16 @@ allposs=$(xrandr -q | grep "connected")
 screens=$(echo "$allposs" | awk '/ connected/ {print $1}')
 
 # Get first screen
-primary=$(echo "$screens" | awk 'NR==1{print $1}')
+screen_left=$(echo "$screens" | awk 'NR==1{print $1}')
 
 # Save default direction
 direction='right'
 
-cmd="xrandr --output ${primary} --auto --scale 1.0x1.0"
+cmd="xrandr --output ${screen_left} --auto --scale 1.0x1.0"
 for screen in $(echo "$screens" | awk 'NR>1')
 do
-	cmd="${cmd} --output ${screen} --"$direction"-of $primary --auto --scale 1.0x1.0"
+	cmd="${cmd} --output ${screen} --"$direction"-of $screen_left --auto --scale 1.0x1.0"
+	screen_left=$screen
 done
 
-$cmd; postrun; notify-send "💻 Detected $(echo "$screens" | wc -l) screens." "Using default settings..."
+$cmd; postrun
