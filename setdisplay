@@ -12,20 +12,16 @@ allposs=$(xrandr -q | grep "connected")
 # Get all connected screens.
 screens=$(echo "$allposs" | awk '/ connected/ {print $1}')
 
-# If there's only one screen
-[ "$(echo "$screens" | wc -l)" -lt 2 ] &&
-	{ onescreen "$screens"; postrun; notify-send "💻 Only one screen detected." "Using it in its optimal settings...";  exit ;}
-
+# Get first screen
 primary=$(echo "$screens" | awk 'NR==1{print $1}')
-# secondary=$(echo "$screens" | awk 'NR==2{print $1}')
+
+# Save default direction
 direction='right'
+
 cmd="xrandr --output ${primary} --auto --scale 1.0x1.0"
 for screen in $(echo "$screens" | awk 'NR>1')
 do
 	cmd="${cmd} --output ${screen} --"$direction"-of $primary --auto --scale 1.0x1.0"
 done
 
-echo $cmd
-$cmd
-
-# xrandr --output "$primary" --auto --scale 1.0x1.0 --output "$secondary" --"$direction"-of "$primary" --auto --scale 1.0x1.0
+$cmd; postrun; notify-send "💻 Detected $(echo "$screens" | wc -l) screens." "Using default settings..."
