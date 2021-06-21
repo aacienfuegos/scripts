@@ -1,0 +1,62 @@
+#!/bin/sh
+
+lang_code=~/.local/bin/files/lang_code
+
+# Get languages from cli
+POSITIONAL=()
+while [[ $# -gt 0 ]]; do
+	key="$1"
+
+	case $key in
+    	-sl|--source-language)
+			sl="$2"
+			source_lang=$(awk -v lang="$sl" '$2==lang {print $1}' $lang_code)
+			shift # past argument
+			shift # past value
+			;;
+    	-tl|--to-language)
+			tl="$2"
+			to_lang=$(awk -v lang="$tl" '$2==lang {print $1}' $lang_code)
+			shift # past argument
+			shift # past value
+			;;
+    	-q|--query)
+			query="$2"
+			shift # past argument
+			shift # past value
+			;;
+	esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
+# Dmenu prompts for languages if not passed through cli
+if [ -z "$sl" ]
+then
+	source_lang=$(awk '{print $1}' $lang_code | dmenu -p "Translate FROM")
+	sl=$(awk -v lang="$source_lang" '$1==lang {print $2}' $lang_code)
+	[ -z "$sl" ] && exit
+fi
+if [ -z "$tl" ]
+then
+	to_lang=$(awk '{print $1}' $lang_code | dmenu -p "Translate TO")
+	tl=$(awk -v lang="$to_lang" '$1==lang {print $2}' $lang_code)
+	[ -z "$tl" ] && exit
+fi
+if [ -z "$query" ]
+then
+	query=$(echo "" | dmenu -p "Translate from ${source_lang} to ${to_lang}")
+	[ -z "$query" ] && exit # Exit if empty
+fi
+
+# Call the API in a very ilegal way
+base_url="https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q="
+ua='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'
+qry=$( echo $query | sed -E 's/\s{1,}/\+/g' )
+full_url=${base_url}${qry}
+response=$(curl -sA "${ua}" "${full_url}")
+
+#print only first translation from JSON
+output=$(echo ${response} | sed 's/","/\n/g' | sed -E 's/\[|\]|"//g' | head -1)
+
+# Send notification
+notify-send "$query in $to_lang is:" "$output"
