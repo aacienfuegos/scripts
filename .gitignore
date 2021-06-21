@@ -4,3 +4,4 @@ hjson.cmd
 python-argcomplete-check-easy-install-script
 python-argcomplete-tcsh
 register-python-argcomplete
+rust-analyzer
