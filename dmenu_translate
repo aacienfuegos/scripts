@@ -59,4 +59,4 @@ response=$(curl -sA "${ua}" "${full_url}")
 output=$(echo ${response} | sed 's/","/\n/g' | sed -E 's/\[|\]|"//g' | head -1)
 
 # Send notification
-notify-send "$query in $to_lang is:" "$output"
+notify-send "\"$query\" in $to_lang is:" "$output"
