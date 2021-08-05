@@ -1,0 +1,27 @@
+#!/bin/sh
+
+status=$(mpc | awk 'NR==2 {print $1};' | sed 's/[][]//g')
+
+if [[ $1 == play ]]; then
+	if [[ $status == paused ]]; then
+		mpc play
+	else
+		playerctl play
+	fi
+elif [[ $1 == pause ]]; then
+	if [[ $status == playing ]]; then
+		mpc pause
+	else
+		playerctl pause
+	fi
+elif [[ $1 == toggle ]]; then
+	if [[ $status == "" ]]; then
+		playerctl play-pause
+	else
+		mpc toggle
+	fi
+elif [[ $1 == stop ]]; then
+	mpc stop
+else
+	echo $status
+fi
