@@ -20,7 +20,6 @@ setxkbmap 	-layout us_local,es \
 # When Caps is pressed alone it behaves as Escape
 killall xcape 2>/dev/null
 xcape -e 'Super_L=Escape'
-xcape -e 'Shift_L=space'
 
 # Speed xrate up
 xset r rate 300 50
