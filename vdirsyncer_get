@@ -1,0 +1,22 @@
+#!/bin/sh
+
+if [ $2 != 'password' ]
+then
+	value=$(secret-tool lookup server $1 key $2)
+else
+	value=$(secret-tool lookup server $1 service vdirsyncer key $2)
+fi
+
+if [ $2 = 'url' ]
+then
+	case $3 in
+		'calendar')
+			value=${value}/remote.php/dav/
+			;;
+		'contacts')
+			value=${value}/remote.php/dav/
+			;;
+		esac
+fi
+
+echo $value
