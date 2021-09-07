@@ -1,0 +1,31 @@
+#!/bin/sh
+
+function sync {
+	cal_pid=$1
+	tmp=$(mktemp)
+
+	vdirsyncer sync calendars &>> $tmp
+
+	if [ $(grep 'Copying\|Deleting' $tmp | wc -l) -gt 0 ]
+	then
+		notify-send "Calendar" "New calendar events"
+		sleep 1
+		reload=$(echo -e 'yes\nno' | dmenu -p "Do you want to reload?")
+
+		if [ $reload = 'yes' ]
+		then
+			kill $cal_pid &>>/dev/null || true
+			alacritty -e ikhal &
+		fi
+
+	fi
+}
+
+alacritty -e ikhal &
+cal_pid=$!
+
+sync $cal_pid &
+sync_pid=$!
+
+wait $cal_pid
+kill $sync_pid &>>/dev/null || true
