@@ -9,7 +9,8 @@ Spotify | https://open.spotify.com/
 Netflix | https://www.netflix.com/es-en/
 Twitch | https://twitch.tv/
 ## Network
-Router | http://192.168.1.1/
+Router Finetwork | http://192.168.0.1/
+Router Movistar | http://192.168.1.1/
 Tp-Link Deco | http://tplinkdeco.net/
 ## Education
 Moodle | https://moodle.upm.es/titulaciones/oficiales/my/
