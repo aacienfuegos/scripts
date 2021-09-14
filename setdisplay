@@ -20,7 +20,7 @@ screens=$(echo "$allposs" | awk '/ connected/ {print $1}')
 screen_left=$(echo "$screens" | awk 'NR==1{print $1}')
 
 # Save default direction
-direction='right'
+direction='left'
 
 cmd="xrandr --output ${screen_left} --auto --scale 1.0x1.0"
 for screen in $(echo "$screens" | awk 'NR>1')
