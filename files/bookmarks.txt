@@ -8,6 +8,8 @@ Youtube | https://youtube.com/
 Spotify | https://open.spotify.com/
 Netflix | https://www.netflix.com/es-en/
 Twitch | https://twitch.tv/
+## Shopping
+Amazon | https://amazon.es/
 ## Network
 Router Finetwork | http://192.168.0.1/
 Router Movistar | http://192.168.1.1/
