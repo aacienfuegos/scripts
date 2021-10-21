@@ -22,7 +22,6 @@ DAT | https://dat.etsit.upm.es/examenes/GITST/4/ITINERARIO%20EN%20TELEMATICA
 Simplyjarod | https://simplyjarod.com/etsit
 UPM Mail | https://www.upm.es/webmail_alumnos/?_task=mail&_mbox=INBOX
 Microsoft Teams | https://teams.microsoft.com/_#/school//?ctx=teamsGrid
-Acciona Academy | https://www.accionaacademy.com
 ## Google
 Calendar | https://calendar.google.com/calendar/u/0/r
 Gmail | https://www.gmail.com
