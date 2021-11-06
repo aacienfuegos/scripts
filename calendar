@@ -1,5 +1,7 @@
 #!/bin/sh
 
+open_khal="alacritty -e ikhal"
+
 function sync {
 	cal_pid=$1
 	tmp=$(mktemp)
@@ -15,13 +17,13 @@ function sync {
 		if [ $reload = 'yes' ]
 		then
 			kill $cal_pid &>>/dev/null || true
-			alacritty -e ikhal &
+			$open_khal &
 		fi
 
 	fi
 }
 
-alacritty -e ikhal &
+$open_khal &
 cal_pid=$!
 
 sync $cal_pid &
