@@ -1,6 +1,6 @@
 #!/bin/sh
 
-open_khal="alacritty -e ikhal"
+open_khal="alacritty -e khal --logfile $XDG_CACHE_HOME/khal/log.log interactive "
 
 function sync {
 	cal_pid=$1
