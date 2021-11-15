@@ -1,0 +1,13 @@
+#!/usr/bin/zsh
+config=$(ls $XDG_CONFIG_HOME | dmenu)
+
+cmds="nvim; zsh"
+
+tmpfile=$(mktemp)
+echo "$cmds" > $tmpfile
+chmod +x $tmpfile
+
+config_path=$XDG_CONFIG_HOME/$config
+$TERMINAL --working-directory $config_path -e $tmpfile
+
+rm $tmpfile
