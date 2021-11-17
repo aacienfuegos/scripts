@@ -1,0 +1,8 @@
+#!/usr/bin/sh
+
+playlist=$(mpc lsplaylists | dmenu -p "Playlist:")
+
+mpc clear
+mpc load "$playlist"
+mpc shuffle
+mpc play
