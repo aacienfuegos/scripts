@@ -11,7 +11,6 @@ function sync {
 	if [ $(grep 'Copying\|Deleting' $tmp | wc -l) -gt 0 ]
 	then
 		notify-send "Calendar" "New calendar events"
-		sleep 1
 		reload=$(echo -e 'yes\nno' | dmenu -p "Do you want to reload?")
 
 		if [ $reload = 'yes' ]
