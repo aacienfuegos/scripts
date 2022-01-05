@@ -1,0 +1,9 @@
+#!/usr/bin/zsh
+
+tmp="$(mktemp)"
+$TERMINAL -e lfrun -last-dir-path="$tmp" "$@"
+if [ -f "$tmp" ]; then
+	dir="$(cat "$tmp")"
+	rm -f "$tmp" >/dev/null
+	[ -d "$dir" ] && $TERMINAL --working-directory="$dir"
+fi
