@@ -1,6 +1,3 @@
-## Wiki
-ArchWiki | https://wiki.archlinux.org/index.php/
-Wikipedia | https://en.wikipedia.org/wiki/
 ##  Media
 Movistar Plus | https://ver.movistarplus.es/
 Disney Plus | https://www.disneyplus.com/
@@ -8,12 +5,10 @@ Youtube | https://youtube.com/
 Spotify | https://open.spotify.com/
 Netflix | https://www.netflix.com/es-en/
 Twitch | https://twitch.tv/
-## Shopping
-Amazon | https://amazon.es/
-## Network
-Router Finetwork | http://192.168.0.1/
-Router Movistar | http://192.168.1.1/
-Tp-Link Deco | http://tplinkdeco.net/
+## Productivity
+Trello | https://trello.com/
+Overleaf | https://overleaf.com/
+Jitsi | https://meet.jit.si/
 ## Education
 Moodle | https://moodle.upm.es/titulaciones/oficiales/my/
 Moodle Exams | https://moodle-exam.upm.es/my/
@@ -22,7 +17,7 @@ DAT | https://dat.etsit.upm.es/examenes/GITST/4/ITINERARIO%20EN%20TELEMATICA
 DIT Lab | https://acceso.lab.dit.upm.es/
 Simplyjarod | https://simplyjarod.com/etsit
 UPM Mail | https://www.upm.es/webmail_alumnos/?_task=mail&_mbox=INBOX
-### Microsoft
+## Microsoft
 Microsoft Teams | https://teams.microsoft.com/_#/school//?ctx=teamsGrid
 Office | https://office.com
 Outlook | https://outlook.office.com
@@ -38,7 +33,6 @@ Instagram | https://www.instagram.com/
 WhatsApp | https://web.whatsapp.com/
 Twitter | https://twitter.com
 Linkedin | https://linkedin.com
-Jitsi | https://meet.jit.si/
 ## My Server
 Hassio | https://hassio.ciencre.xyz/lovelace-andres
 Nextcloud | https://nextcloud.ciencre.xyz/
@@ -46,10 +40,17 @@ PiHole | http://192.168.68.10:5380/admin
 Jellyfin | https://jellyfin.ciencre.xyz/
 Grafana | https://grafana.ciencre.xyz/
 NodeRed | http://192.168.68.10:6056/
+## Shopping
+Amazon | https://amazon.es/
+## Network
+Router Finetwork | http://192.168.0.1/
+Router Movistar | http://192.168.1.1/
+Tp-Link Deco | http://tplinkdeco.net/
+## Wiki
+ArchWiki | https://wiki.archlinux.org/index.php/
+Wikipedia | https://en.wikipedia.org/wiki/
 ## Others
 Github | https://github.com/
 Typing Club | https://www.typingclub.com/
 Chess | https://www.chess.com/
 Lichess | https://lichess.org/
-Overleaf | https://overleaf.com/
-Trello | https://trello.com/

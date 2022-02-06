@@ -1,7 +1,7 @@
 #!/bin/sh
 search=search.brave.com
 
-bm_file=~/.local/bin/files/bookmarks.txt
+bm_file=~/.local/bin/files/bookmarks.md
 focus_pid=$(xdotool getwindowfocus)
 
 url=$(grep -v "##" $bm_file | dmenu -l 20 | cut -d "|" -f 2 )
