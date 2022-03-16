@@ -18,7 +18,7 @@ DIT Lab | https://acceso.lab.dit.upm.es/
 Simplyjarod | https://simplyjarod.com/etsit
 UPM Mail | https://www.upm.es/webmail_alumnos/?_task=mail&_mbox=INBOX
 ## Microsoft
-Microsoft Teams | https://teams.microsoft.com/_#/school//?ctx=teamsGrid
+Microsoft Teams | https://teams.microsoft.com
 Office | https://office.com
 Outlook | https://outlook.office.com
 ## Google
