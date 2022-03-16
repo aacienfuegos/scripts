@@ -1,0 +1,5 @@
+#!/bin/sh
+
+input=$(rbw ls | dmenu)
+[ !-z $input ] && exit
+rbw get $input | xclip -sel clip
