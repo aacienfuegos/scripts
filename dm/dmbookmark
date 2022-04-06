@@ -4,7 +4,7 @@ search=google.com
 bm_file=~/.local/bin/files/bookmarks.txt
 focus_pid=$(xdotool getwindowfocus)
 
-url=$(grep -v "##" $bm_file | dmenu -l 20 | cut -d "|" -f 2 )
+url=$(grep -v "^#" $bm_file | dmenu -l 20 | cut -d "|" -f 2 )
 
 [ -z "$url" ] && exit
 [ ! $(echo $url | grep http) ] && url=https://${search}/search?q=$(echo $url | sed 's/ /+/g')
