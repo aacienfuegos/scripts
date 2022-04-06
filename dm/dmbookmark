@@ -1,5 +1,5 @@
 #!/bin/sh
-search=search.brave.com
+search=google.com
 
 bm_file=~/.local/bin/files/bookmarks.txt
 focus_pid=$(xdotool getwindowfocus)
