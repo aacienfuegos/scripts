@@ -2,6 +2,8 @@
 
 playlist=$(mpc lsplaylists | dmenu -p "Playlist:")
 
+[ -z "$playlist" ] && exit
+
 mpc clear
 mpc load "$playlist"
 mpc shuffle
