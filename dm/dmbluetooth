@@ -1,0 +1,37 @@
+#!/bin/sh
+
+function connect {
+	bluetoothctl power on
+	bluetoothctl connect "$1"
+	notify-send "Bluetooth" "Connected to $2"
+}
+
+# State
+state=$(bluetoothctl show | grep Powered | cut -d ' ' -f 2)
+[ "$state" = "no" ] &&
+	cmds="🟢 ON 	bluetoothctl power on	🟢 Powered ON" ||
+	cmds="🔴 OFF 	bluetoothctl power off 	🔴 Powered OFF"
+
+# Disconnect
+cmds+="
+🟠 Disconnect 	bluetoothctl disconnect 	🟠 Disconnected"
+
+# Scan
+cmds+="
+🔎 Scan 	setsid -f bluetoothctl scan on 	🔎 Scanning"
+
+# Devices
+devices=$(bluetoothctl devices | cut -d ' ' -f 2-)
+readarray -t devices <<< $(echo -e "$devices")
+for device in "${devices[@]}"; do
+	deviceName=$(echo "$device" | cut -d ' ' -f 2-)
+	deviceUID=$(echo "$device" | cut -d ' ' -f 1)
+	[ -z "$deviceName" ] && continue
+	[ -z "$deviceName" ] && continue
+	cmds="$cmds
+📢 $deviceName 	connect $deviceUID $deviceName 	📢 Connected to $deviceName"
+done
+
+choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu -p "Bluetooth")" || exit 1
+`echo "$cmds" | grep "^$choice	" | cut -d '	' -f 2`
+notify-send "Bluetooth" "$(echo "$cmds" | grep "^$choice	" | cut -d '	' -f 3)"
