@@ -2,8 +2,7 @@
 
 function connect {
 	bluetoothctl power on
-	bluetoothctl connect "$1"
-	notify-send "Bluetooth" "Connected to $2"
+	bluetoothctl connect "$1" && notify-send "Bluetooth" "📢 Connected to $2" || notify-send "Bluetooth" "📢❌Failed to connect to $2"
 }
 
 # State
@@ -29,9 +28,13 @@ for device in "${devices[@]}"; do
 	[ -z "$deviceName" ] && continue
 	[ -z "$deviceName" ] && continue
 	cmds="$cmds
-📢 $deviceName 	connect $deviceUID $deviceName 	📢 Connected to $deviceName"
+📢 $deviceName 	connect $deviceUID $deviceName"
 done
 
+# Present choices
 choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu -p "Bluetooth")" || exit 1
+# Execute choice
 `echo "$cmds" | grep "^$choice	" | cut -d '	' -f 2`
-notify-send "Bluetooth" "$(echo "$cmds" | grep "^$choice	" | cut -d '	' -f 3)"
+# Show notification
+notification_text=$(echo "$cmds" | grep "^$choice	" | cut -d '	' -f 3)
+[ -n "$notification_text" ] && notify-send "Bluetooth" "$notification_text"
