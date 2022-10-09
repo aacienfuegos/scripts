@@ -5,17 +5,21 @@ function connect {
 	bluetoothctl connect "$1" && notify-send "Bluetooth" "📢 Connected to $2" || notify-send "Bluetooth" "📢❌Failed to connect to $2"
 }
 
+cmds="" # List of commands to run (first line will be removed)
+
 # Disconnect
-paired=$(bluetoothctl info | grep Paired | cut -d ' ' -f 2)
-[ "$paired" = "yes" ] &&
+connected=$(bluetoothctl info | grep Connected | cut -d ' ' -f 2)
+[ "$connected" = "yes" ] &&
 	cmds+="
 🟠 Disconnect 	bluetoothctl disconnect 	🟠 Disconnected"
 
 # State
 state=$(bluetoothctl show | grep Powered | cut -d ' ' -f 2)
 [ "$state" = "no" ] &&
-	cmds="🟢 ON 	bluetoothctl power on	🟢 Powered ON" ||
-	cmds="🔴 OFF 	bluetoothctl power off 	🔴 Powered OFF"
+	cmds+="
+🟢 ON 	bluetoothctl power on	🟢 Powered ON" ||
+	cmds+="
+🔴 OFF 	bluetoothctl power off 	🔴 Powered OFF"
 
 # Scan
 cmds+="
@@ -33,6 +37,8 @@ for device in "${devices[@]}"; do
 📢 $deviceName 	connect $deviceUID $deviceName"
 done
 
+# Omit first line (empty line)
+cmds=$(echo "$cmds" | tail -n +2)
 # Present choices
 choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu -p "Bluetooth")" || exit 1
 # Execute choice
