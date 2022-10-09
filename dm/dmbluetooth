@@ -5,15 +5,17 @@ function connect {
 	bluetoothctl connect "$1" && notify-send "Bluetooth" "📢 Connected to $2" || notify-send "Bluetooth" "📢❌Failed to connect to $2"
 }
 
+# Disconnect
+paired=$(bluetoothctl info | grep Paired | cut -d ' ' -f 2)
+[ "$paired" = "yes" ] &&
+	cmds+="
+🟠 Disconnect 	bluetoothctl disconnect 	🟠 Disconnected"
+
 # State
 state=$(bluetoothctl show | grep Powered | cut -d ' ' -f 2)
 [ "$state" = "no" ] &&
 	cmds="🟢 ON 	bluetoothctl power on	🟢 Powered ON" ||
 	cmds="🔴 OFF 	bluetoothctl power off 	🔴 Powered OFF"
-
-# Disconnect
-cmds+="
-🟠 Disconnect 	bluetoothctl disconnect 	🟠 Disconnected"
 
 # Scan
 cmds+="
