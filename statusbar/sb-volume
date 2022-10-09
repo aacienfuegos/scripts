@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # Prints the current volume or 🔇 if muted.
+# Prints 🔈, 🔉 or 🔊 depending on the volume level.
+# Prints 🎧 if paired to a bluetooth device.
 
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e pulsemixer ;;
@@ -24,5 +26,9 @@ elif [ "$vol" -lt "30" ]; then
 else
 	icon="🔉"
 fi
+
+# Bluetooth
+paired=$(bluetoothctl info | grep Paired | cut -d ' ' -f 2)
+[ "$paired" = "yes" ] && icon+="🎧"
 
 echo "$icon$vol%"
