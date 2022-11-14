@@ -10,17 +10,6 @@ Trello | https://trello.com/
 Overleaf | https://overleaf.com/
 Jitsi | https://meet.jit.si/
 # Education
-## Moodle
-Moodle | https://moodle.upm.es/titulaciones/oficiales/my/
-ISST | https://moodle.upm.es/titulaciones/oficiales/course/view.php?id=2783
-DORE | https://moodle.upm.es/titulaciones/oficiales/course/view.php?id=20614
-RSRD | https://moodle.upm.es/titulaciones/oficiales/course/view.php?id=2346
-Moodle Exams | https://moodle-exam.upm.es/my/
-Politécnica Virtual | https://upm.es/politecnica_virtual
-DAT | https://dat.etsit.upm.es/examenes/GITST/4/ITINERARIO%20EN%20TELEMATICA
-DIT Lab | https://acceso.lab.dit.upm.es/
-Simplyjarod | https://simplyjarod.com/etsit
-UPM Mail | https://www.upm.es/webmail_alumnos/?_task=mail&_mbox=INBOX
 # Microsoft
 Microsoft Teams | https://teams.microsoft.com
 Office | https://office.com
