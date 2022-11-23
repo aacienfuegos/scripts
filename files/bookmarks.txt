@@ -17,6 +17,7 @@ Outlook | https://outlook.office.com
 # Google
 Calendar | https://calendar.google.com/calendar/u/0/r
 Gmail | https://www.gmail.com
+Photos | https://photos.google.com/
 Maps | https://www.google.es/maps
 Drive | https://www.drive.google.com
 # Social Network
